@@ -31,6 +31,8 @@ function M.setup()
 
       create_fix_usings_command(args.buf)
       create_fix_all_command(args.buf)
+        create_run_command(args.buf)
+        create_debug_command(args.buf)
     end,
   })
 end
