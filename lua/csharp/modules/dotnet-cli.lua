@@ -6,9 +6,9 @@ local function execute_command(cmd)
   local file = io.popen(cmd .. " 2>&1")
   local output = file:read("*all")
   logger.debug("[DBG CLI] output",{output=output})
-  local one, two, exit_code = file:close()  
+  local ok, _, exit_code = file:close()  
   logger.debug("close return :: ",{one=one,two=two,code=exit_code})
-  if (one) then
+  if (ok) then
     logger.debug("successfully closed returning ",{output=output,exit_code=0})
     return output, 0
   else
