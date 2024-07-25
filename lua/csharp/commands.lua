@@ -10,6 +10,14 @@ local function create_fix_all_command(buffer)
   vim.api.nvim_buf_create_user_command(buffer, "CsharpFixAll", csharp.fix_all, { desc = "Csharp: Fix all" })
 end
 
+local function create_run_command(buffer)
+  vim.api.nvim_buf_create_user_command(buffer, "CsharpRun", csharp.run_project, { desc = "Csharp: run project" })
+end
+
+local function create_debug_command(buffer)
+  vim.api.nvim_buf_create_user_command(buffer, "CsharpDebug", csharp.debug_project, { desc = "Csharp: debug project" })
+end
+
 function M.setup()
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
