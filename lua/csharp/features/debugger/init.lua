@@ -64,10 +64,11 @@ local function _execute()
     if launch_profile then
       logger.debug("Applying launch profile to debug config.", { feature = "debugger", launch_profile = launch_profile, debug_config })
       debug_config = apply_launch_profile(debug_config, launch_profile)
+      logger.debug("patched config is ",debug_config)
     end
   end
 
-  logger.debug("Starting debugger", { feature = "debugger", debug_config = debug_config })
+  logger.debug("Starting debugger", { feature = "debugger", debug_config = debug_config, dap=dap })
   notify.info("Starting debugger!")
   dap.launch(debug_adapter, debug_config)
 end

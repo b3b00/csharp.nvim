@@ -6,11 +6,13 @@ local logger = require("csharp.log")
 function M.get_debug_adapter()
   local config = config_store.get_config().dap
 
+  logger.debug("[DBG DAP] config adapter ",{config=config,adapter=config.adapter_name})
   if config.adapter_name ~= nil then
+    logger.debug("[DBG DAP] found a configured adapter. returning.",{adapter_name=config.adapter_name,adapter=dap.adapters[config.adapter_name]})
     return dap.adapters[config.adapter_name]
   end
   logger.debug("[DBG DAP ] building adapter")
-  local debug_adapter = nil --dap.adapters.coreclr
+  local debug_adapter = dap.adapters.coreclr
 
   if debug_adapter ~= nil then
     logger.debug("[DBG DAP ] returning default clr ? ",debug_adapter)

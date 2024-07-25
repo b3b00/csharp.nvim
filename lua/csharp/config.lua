@@ -26,7 +26,7 @@ local default_config = {
   --- @class CsharpConfig.Dap
   dap = {
     --- @type string?
-    adapter_name = nil,
+    adapter_name = "coreclr",
   },
   ---@class CsharpConfig.Logging
   logging = {
