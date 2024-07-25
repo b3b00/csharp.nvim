@@ -34,6 +34,7 @@ local function _execute()
     logger.error("Debug Adapter is not installed or configured.", { feature = "debugger" })
     return
   end
+  logger.debug("starting debugger feature _execute()")
 
   if next(dap.sessions()) ~= nil then
     logger.debug("Debugging is already running, using dap.continue().", { feature = "debugger" })
